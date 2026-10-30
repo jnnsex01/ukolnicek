@@ -1,0 +1,19 @@
+{% extends 'ukoly/base.html' %}
+
+{% block content %}
+    <article class="ukol">
+        {% if ukol.termin %}
+            <time class="termin">
+                termín: {{ ukol.termin }}
+            </time>
+        {% endif %}
+        <h2>{{ ukol.nazev }}</h2>
+        <p>{{ ukol.popis|linebreaksbr }}</p>
+        <p class="termin">
+            Založil {{ ukol.autor }}, {{ ukol.vytvoreno }}
+        </p>
+        {% if ukol.splneno %}
+            <p><strong>Splněno {{ ukol.splneno }}</strong></p>
+        {% endif %}
+    </article>
+{% endblock %}
