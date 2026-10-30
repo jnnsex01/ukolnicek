@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from .models import Ukol
 
-# Create your views here.
 def ukol_list(request):
-    return render(request, 'ukoly/ukol_list.html',{})
+    ukoly = Ukol.objects.filter(splneno__isnull=True).order_by('termin')
+    return render(request, 'ukoly/ukol_list.html', {"ukoly":ukoly})
